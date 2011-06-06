@@ -18,6 +18,7 @@ public:
     bool tryOpen() {return db.open();}
     QStringList getDatabases();
     QStringList getTables(QString dbname);
+    QStringList getSchemas(QString dbname);
 signals:
 
 public slots:

@@ -56,6 +56,25 @@ QStringList Pgdump::getTables(QString dbname)
     return sl;
 }
 
+QStringList Pgdump::getSchemas(QString dbname)
+{
+    QStringList sl;
+    db.setDatabaseName(dbname);
+    if (db.open()){
+        //qDebug() << "db connected!";
+        QSqlQuery q(db);
+        QString cmd = "select n.nspname from pg_catalog.pg_namespace n where (n.nspname !~ '^pg_temp_' OR n.nspname = (pg_catalog.current_schemas(true))[1]) order by 1;";
+        if (q.exec(cmd)){
+            //qDebug("query runned well!");
+            while (q.next()){
+                sl.append(q.value(0).toString());
+            }
+        }
+        db.close();
+    }
+    return sl;
+}
+
 /*
 SELECT c.relname as "Name",
   CASE c.relkind WHEN 'r' THEN 'table' WHEN 'v' THEN 'view' WHEN 'i' THEN 'index' WHEN 'S' THEN 'sequence' WHEN 's' THEN 'special' END as "Type",
@@ -84,4 +103,5 @@ WHERE c.relkind IN ('r','')
   AND pg_catalog.pg_table_is_visible(c.oid)
 ORDER BY 1,2;
 
+select n.nspname from pg_catalog.pg_namespace n where (n.nspname !~ '^pg_temp_' OR n.nspname = (pg_catalog.current_schemas(true))[1]) order by 1;
 */
