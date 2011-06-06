@@ -34,3 +34,19 @@ void MainWindow::on_edtPass_returnPressed()
         ui->lblStatus->setText("Bad!");
     }
 }
+
+void MainWindow::on_btnNext_Table_clicked()
+{
+    Pgdump p(ui->edtUser->text(),ui->edtPass->text(),
+             ui->edtHost->text(),ui->edtPort->text().toInt());
+    QStringList dbs = p.getDatabases();
+    foreach (QString db_s, dbs){
+        QTreeWidgetItem *db = new QTreeWidgetItem(ui->tree);
+        db->setText(0,db_s);
+        QStringList tbls = p.getTables(db_s);
+        foreach (QString tbl_s, tbls){
+            QTreeWidgetItem *tree = new QTreeWidgetItem(db);
+            tree->setText(0,tbl_s);
+        }
+    }
+}

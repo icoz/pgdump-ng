@@ -24,166 +24,213 @@
        <attribute name="title">
         <string>Network</string>
        </attribute>
-       <widget class="QPushButton" name="pushButton">
-        <property name="geometry">
-         <rect>
-          <x>410</x>
-          <y>270</y>
-          <width>91</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>next</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>50</y>
-          <width>54</width>
-          <height>15</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>hosname</string>
-        </property>
-        <property name="buddy">
-         <cstring>edtHost</cstring>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="edtHost">
-        <property name="geometry">
-         <rect>
-          <x>100</x>
-          <y>50</y>
-          <width>113</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>localhost</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_2">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>90</y>
-          <width>54</width>
-          <height>15</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>port</string>
-        </property>
-        <property name="buddy">
-         <cstring>edtPort</cstring>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="edtPort">
-        <property name="geometry">
-         <rect>
-          <x>100</x>
-          <y>90</y>
-          <width>113</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>5432</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_3">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>130</y>
-          <width>54</width>
-          <height>15</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>username</string>
-        </property>
-        <property name="buddy">
-         <cstring>edtUser</cstring>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="edtUser">
-        <property name="geometry">
-         <rect>
-          <x>100</x>
-          <y>130</y>
-          <width>113</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>postgres</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_4">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>170</y>
-          <width>54</width>
-          <height>15</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>password</string>
-        </property>
-        <property name="buddy">
-         <cstring>edtPass</cstring>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="edtPass">
-        <property name="geometry">
-         <rect>
-          <x>100</x>
-          <y>170</y>
-          <width>113</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>postgres</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_5">
-        <property name="geometry">
-         <rect>
-          <x>280</x>
-          <y>60</y>
-          <width>54</width>
-          <height>15</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Status</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="lblStatus">
-        <property name="geometry">
-         <rect>
-          <x>360</x>
-          <y>60</y>
-          <width>54</width>
-          <height>15</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Bad!</string>
-        </property>
-       </widget>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>hosname</string>
+          </property>
+          <property name="buddy">
+           <cstring>edtHost</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="edtHost">
+          <property name="text">
+           <string>localhost</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Status</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QLabel" name="lblStatus">
+          <property name="text">
+           <string>Bad!</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>port</string>
+          </property>
+          <property name="buddy">
+           <cstring>edtPort</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="edtPort">
+          <property name="text">
+           <string>5432</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>username</string>
+          </property>
+          <property name="buddy">
+           <cstring>edtUser</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="edtUser">
+          <property name="text">
+           <string>postgres</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>password</string>
+          </property>
+          <property name="buddy">
+           <cstring>edtPass</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLineEdit" name="edtPass">
+          <property name="text">
+           <string>postgres</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="2">
+         <widget class="QPushButton" name="btnNext_Table">
+          <property name="text">
+           <string>next</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tables">
        <attribute name="title">
         <string>Tables</string>
        </attribute>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>Choose what...</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="label_7">
+          <property name="text">
+           <string>...to save</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QTreeWidget" name="tree">
+          <column>
+           <property name="text">
+            <string/>
+           </property>
+          </column>
+          <item>
+           <property name="text">
+            <string>Db1</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>schemas</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>sch1</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>sch2</string>
+             </property>
+            </item>
+           </item>
+           <item>
+            <property name="text">
+             <string>tables</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>t1</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>t2</string>
+             </property>
+            </item>
+           </item>
+          </item>
+         </widget>
+        </item>
+        <item row="1" column="1" colspan="2">
+         <widget class="QTableWidget" name="outTables">
+          <property name="columnCount">
+           <number>4</number>
+          </property>
+          <column>
+           <property name="text">
+            <string>dbname</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>tablename</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>struct</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>data</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnNext_Params">
+            <property name="text">
+             <string>next</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="params">
        <attribute name="title">
@@ -217,11 +264,14 @@
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
   <tabstop>tabs</tabstop>
+  <tabstop>tree</tabstop>
+  <tabstop>outTables</tabstop>
+  <tabstop>btnNext_Params</tabstop>
   <tabstop>edtHost</tabstop>
+  <tabstop>btnNext_Table</tabstop>
   <tabstop>edtPort</tabstop>
-  <tabstop>edtUser</tabstop>
   <tabstop>edtPass</tabstop>
-  <tabstop>pushButton</tabstop>
+  <tabstop>edtUser</tabstop>
  </tabstops>
  <resources/>
  <connections>
@@ -252,8 +302,8 @@
      <y>157</y>
     </hint>
     <hint type="destinationlabel">
-     <x>181</x>
-     <y>200</y>
+     <x>152</x>
+     <y>240</y>
     </hint>
    </hints>
   </connection>
@@ -264,12 +314,28 @@
    <slot>setFocus()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>201</x>
-     <y>205</y>
+     <x>172</x>
+     <y>240</y>
     </hint>
     <hint type="destinationlabel">
-     <x>204</x>
-     <y>235</y>
+     <x>175</x>
+     <y>301</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>edtPass</sender>
+   <signal>returnPressed()</signal>
+   <receiver>btnNext_Table</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>298</x>
+     <y>288</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>549</x>
+     <y>357</y>
     </hint>
    </hints>
   </connection>

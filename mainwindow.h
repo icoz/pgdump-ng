@@ -19,6 +19,8 @@ private slots:
 
     void on_edtPass_returnPressed();
 
+    void on_btnNext_Table_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
