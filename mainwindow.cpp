@@ -14,11 +14,23 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
+/*void MainWindow::on_pushButton_clicked()
 {
     Pgdump p;
     ui->textEdit->append(p.getDatabases().join("\n"));
     ui->textEdit->append("---------");
     ui->textEdit->append("tables of 'somebase':");
     ui->textEdit->append(p.getTables("somebase").join("\n"));
+}//*/
+
+void MainWindow::on_edtPass_returnPressed()
+{
+    Pgdump p(ui->edtUser->text(),ui->edtPass->text(),
+             ui->edtHost->text(),ui->edtPort->text().toInt());
+    if (p.tryOpen()){
+        ui->lblStatus->setText("Ok!");
+    }
+    else {
+        ui->lblStatus->setText("Bad!");
+    }
 }

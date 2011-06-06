@@ -6,23 +6,190 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>614</width>
+    <height>435</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QTextEdit" name="textEdit"/>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton">
-      <property name="text">
-       <string>run</string>
+     <widget class="QTabWidget" name="tabs">
+      <property name="currentIndex">
+       <number>0</number>
       </property>
+      <widget class="QWidget" name="net">
+       <attribute name="title">
+        <string>Network</string>
+       </attribute>
+       <widget class="QPushButton" name="pushButton">
+        <property name="geometry">
+         <rect>
+          <x>410</x>
+          <y>270</y>
+          <width>91</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>next</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>50</y>
+          <width>54</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>hosname</string>
+        </property>
+        <property name="buddy">
+         <cstring>edtHost</cstring>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="edtHost">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>50</y>
+          <width>113</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>localhost</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>90</y>
+          <width>54</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>port</string>
+        </property>
+        <property name="buddy">
+         <cstring>edtPort</cstring>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="edtPort">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>90</y>
+          <width>113</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>5432</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>130</y>
+          <width>54</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>username</string>
+        </property>
+        <property name="buddy">
+         <cstring>edtUser</cstring>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="edtUser">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>130</y>
+          <width>113</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>postgres</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>170</y>
+          <width>54</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>password</string>
+        </property>
+        <property name="buddy">
+         <cstring>edtPass</cstring>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="edtPass">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>170</y>
+          <width>113</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>postgres</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_5">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>60</y>
+          <width>54</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Status</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lblStatus">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>60</y>
+          <width>54</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Bad!</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tables">
+       <attribute name="title">
+        <string>Tables</string>
+       </attribute>
+      </widget>
+      <widget class="QWidget" name="params">
+       <attribute name="title">
+        <string>Params</string>
+       </attribute>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -32,7 +199,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>614</width>
      <height>21</height>
     </rect>
    </property>
@@ -48,6 +215,63 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>tabs</tabstop>
+  <tabstop>edtHost</tabstop>
+  <tabstop>edtPort</tabstop>
+  <tabstop>edtUser</tabstop>
+  <tabstop>edtPass</tabstop>
+  <tabstop>pushButton</tabstop>
+ </tabstops>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>edtHost</sender>
+   <signal>returnPressed()</signal>
+   <receiver>edtPort</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>139</x>
+     <y>112</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>155</x>
+     <y>160</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>edtPort</sender>
+   <signal>returnPressed()</signal>
+   <receiver>edtUser</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>184</x>
+     <y>157</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>181</x>
+     <y>200</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>edtUser</sender>
+   <signal>returnPressed()</signal>
+   <receiver>edtPass</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>201</x>
+     <y>205</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>204</x>
+     <y>235</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
