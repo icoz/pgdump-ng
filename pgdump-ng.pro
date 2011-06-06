@@ -4,15 +4,17 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 
 TARGET = pgdump-ng
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    pgdump.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    pgdump.h
 
 FORMS    += mainwindow.ui
