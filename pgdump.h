@@ -17,6 +17,7 @@ public:
     void setPassword(QString pass="pass") {db.setPassword(pass);}
     bool tryOpen() {return db.open();}
     QStringList getDatabases();
+    QStringList getTables(QString dbname);
 signals:
 
 public slots:
