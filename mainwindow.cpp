@@ -17,5 +17,8 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     Pgdump p;
-    ui->textEdit->setText(p.getDatabases().join("\n"));
+    ui->textEdit->append(p.getDatabases().join("\n"));
+    ui->textEdit->append("---------");
+    ui->textEdit->append("tables of 'somebase':");
+    ui->textEdit->append(p.getTables("somebase").join("\n"));
 }
