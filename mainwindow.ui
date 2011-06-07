@@ -169,6 +169,13 @@ p, li { white-space: pre-wrap; }
           </property>
          </widget>
         </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="label_7">
+          <property name="text">
+           <string>...to save</string>
+          </property>
+         </widget>
+        </item>
         <item row="1" column="0">
          <widget class="DragTree" name="tree">
           <property name="dragDropMode">
@@ -187,11 +194,16 @@ p, li { white-space: pre-wrap; }
            <enum>QAbstractItemView::DropOnly</enum>
           </property>
           <property name="columnCount">
-           <number>4</number>
+           <number>5</number>
           </property>
           <column>
            <property name="text">
             <string>dbname</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>type</string>
            </property>
           </column>
           <column>
@@ -234,13 +246,6 @@ p, li { white-space: pre-wrap; }
            </widget>
           </item>
          </layout>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLabel" name="label_7">
-          <property name="text">
-           <string>...to save</string>
-          </property>
-         </widget>
         </item>
        </layout>
       </widget>
