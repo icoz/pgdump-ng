@@ -1,6 +1,6 @@
 #include "droptable.h"
 
-DropTable::DropTable(QObject *parent) :
+DropTable::DropTable(QWidget *parent) :
     QTableWidget(parent)
 {
 }

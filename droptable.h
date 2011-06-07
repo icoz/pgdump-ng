@@ -7,7 +7,7 @@ class DropTable : public QTableWidget
 {
     Q_OBJECT
 public:
-    explicit DropTable(QObject *parent = 0);
+    explicit DropTable(QWidget *parent = 0);
 
 signals:
 

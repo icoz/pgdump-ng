@@ -13,12 +13,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     pgdump.cpp \
-    droptable.cpp \
-    dragtree.cpp
+    dragtree.cpp \
+    droptable.cpp
 
 HEADERS  += mainwindow.h \
     pgdump.h \
-    droptable.h \
-    dragtree.h
+    dragtree.h \
+    droptable.h
 
 FORMS    += mainwindow.ui

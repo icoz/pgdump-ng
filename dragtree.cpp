@@ -1,6 +1,6 @@
 #include "dragtree.h"
 
-DragTree::DragTree(QObject *parent) :
+DragTree::DragTree(QWidget *parent) :
     QTreeWidget(parent)
 {
 }

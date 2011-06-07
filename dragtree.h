@@ -7,7 +7,7 @@ class DragTree : public QTreeWidget
 {
     Q_OBJECT
 public:
-    explicit DragTree(QObject *parent = 0);
+    explicit DragTree(QWidget *parent = 0);
 
 signals:
 
