@@ -11,19 +11,6 @@ DragTree::DragTree(QWidget *parent) :
     this->setDragDropMode(QAbstractItemView::DragOnly);
 }
 
-void DragTree::dragMoveEvent(QDragMoveEvent *event)
-{
-    qDebug("dragMoveEvent");
-    event->acceptProposedAction();
-    //if (event->mimeData()->hasFormat())
-}
-
-void DragTree::dragEnterEvent(QDragEnterEvent *event)
-{
-    qDebug("dragEnterEvent");
-    //event->accept();
-}
-
 void DragTree::mouseMoveEvent(QMouseEvent *event)
 {
     if (!(event->buttons() & Qt::LeftButton))
@@ -54,14 +41,8 @@ void DragTree::mouseMoveEvent(QMouseEvent *event)
     drag->setMimeData(mimeData);
 
     Qt::DropAction dropAction = drag->exec(Qt::CopyAction); // | Qt::MoveAction);
-    qDebug("mouseMoveEvent drag!");
+    //qDebug("mouseMoveEvent drag!");
 
-}
-
-void DragTree::dragLeaveEvent(QDragLeaveEvent *event)
-{
-    qDebug("dragLeaveEvent");
-    event->accept();
 }
 
 void DragTree::mousePressEvent(QMouseEvent *event)
