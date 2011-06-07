@@ -28,10 +28,11 @@ void MainWindow::on_edtPass_returnPressed()
     Pgdump p(ui->edtUser->text(),ui->edtPass->text(),
              ui->edtHost->text(),ui->edtPort->text().toInt());
     if (p.tryOpen()){
-        ui->lblStatus->setText("Ok!");
+        ui->lblStatus->setText("<span style=\" color:#00ff00;\">Ok!</span>");
     }
     else {
-        ui->lblStatus->setText("Bad!");
+        ui->lblStatus->setText("<span style=\" color:#ff0000;\">Bad!</span>");
+//                               ui->lblStatus->setText("<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">\n<html><head><meta name="qrichtext" content="1" /><style type="text/css">\np, li { white-space: pre-wrap; }\n</style></head><body style=" font-family:'Ubuntu'; font-size:9pt; font-weight:400; font-style:normal;">\n<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#ff0000;">Bad!</span></p></body></html>");
     }
 }
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>614</width>
-    <height>435</height>
+    <width>589</width>
+    <height>409</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,95 +24,136 @@
        <attribute name="title">
         <string>Network</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout">
-        <item row="0" column="0">
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string>hosname</string>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <layout class="QFormLayout" name="formLayout">
+          <property name="fieldGrowthPolicy">
+           <enum>QFormLayout::ExpandingFieldsGrow</enum>
           </property>
-          <property name="buddy">
-           <cstring>edtHost</cstring>
-          </property>
-         </widget>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Hosname</string>
+            </property>
+            <property name="buddy">
+             <cstring>edtHost</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="edtHost">
+            <property name="text">
+             <string>localhost</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Port</string>
+            </property>
+            <property name="buddy">
+             <cstring>edtPort</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="edtPort">
+            <property name="text">
+             <string>5432</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Username</string>
+            </property>
+            <property name="buddy">
+             <cstring>edtUser</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="edtUser">
+            <property name="text">
+             <string>postgres</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>Password</string>
+            </property>
+            <property name="buddy">
+             <cstring>edtPass</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="edtPass">
+            <property name="text">
+             <string>postgres</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Status</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLabel" name="lblStatus">
+            <property name="text">
+             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;Bad!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
-        <item row="0" column="1">
-         <widget class="QLineEdit" name="edtHost">
-          <property name="text">
-           <string>localhost</string>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
           </property>
-         </widget>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>152</height>
+           </size>
+          </property>
+         </spacer>
         </item>
-        <item row="0" column="2">
-         <widget class="QLabel" name="label_5">
-          <property name="text">
-           <string>Status</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="3">
-         <widget class="QLabel" name="lblStatus">
-          <property name="text">
-           <string>Bad!</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="label_2">
-          <property name="text">
-           <string>port</string>
-          </property>
-          <property name="buddy">
-           <cstring>edtPort</cstring>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLineEdit" name="edtPort">
-          <property name="text">
-           <string>5432</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="label_3">
-          <property name="text">
-           <string>username</string>
-          </property>
-          <property name="buddy">
-           <cstring>edtUser</cstring>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLineEdit" name="edtUser">
-          <property name="text">
-           <string>postgres</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="label_4">
-          <property name="text">
-           <string>password</string>
-          </property>
-          <property name="buddy">
-           <cstring>edtPass</cstring>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="1">
-         <widget class="QLineEdit" name="edtPass">
-          <property name="text">
-           <string>postgres</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="2">
-         <widget class="QPushButton" name="btnNext_Table">
-          <property name="text">
-           <string>next</string>
-          </property>
-         </widget>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnNext_Table">
+            <property name="text">
+             <string>Next</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
@@ -139,44 +180,9 @@
          <widget class="QTreeWidget" name="tree">
           <column>
            <property name="text">
-            <string/>
+            <string>Structure</string>
            </property>
           </column>
-          <item>
-           <property name="text">
-            <string>Db1</string>
-           </property>
-           <item>
-            <property name="text">
-             <string>schemas</string>
-            </property>
-            <item>
-             <property name="text">
-              <string>sch1</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>sch2</string>
-             </property>
-            </item>
-           </item>
-           <item>
-            <property name="text">
-             <string>tables</string>
-            </property>
-            <item>
-             <property name="text">
-              <string>t1</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>t2</string>
-             </property>
-            </item>
-           </item>
-          </item>
          </widget>
         </item>
         <item row="1" column="1" colspan="2">
@@ -246,7 +252,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>614</width>
+     <width>589</width>
      <height>21</height>
     </rect>
    </property>
@@ -264,14 +270,14 @@
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
   <tabstop>tabs</tabstop>
+  <tabstop>edtHost</tabstop>
+  <tabstop>edtPort</tabstop>
+  <tabstop>edtUser</tabstop>
+  <tabstop>edtPass</tabstop>
+  <tabstop>btnNext_Table</tabstop>
   <tabstop>tree</tabstop>
   <tabstop>outTables</tabstop>
   <tabstop>btnNext_Params</tabstop>
-  <tabstop>edtHost</tabstop>
-  <tabstop>btnNext_Table</tabstop>
-  <tabstop>edtPort</tabstop>
-  <tabstop>edtPass</tabstop>
-  <tabstop>edtUser</tabstop>
  </tabstops>
  <resources/>
  <connections>
