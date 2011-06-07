@@ -42,11 +42,22 @@ void MainWindow::on_btnNext_Table_clicked()
     QStringList dbs = p.getDatabases();
     foreach (QString db_s, dbs){
         QTreeWidgetItem *db = new QTreeWidgetItem(ui->tree);
+        QTreeWidgetItem *sch = new QTreeWidgetItem(db);
+        QTreeWidgetItem *tab = new QTreeWidgetItem(db);
         db->setText(0,db_s);
+        sch->setText(0,tr("schema"));
+        tab->setText(0,tr("table"));
         QStringList tbls = p.getTables(db_s);
         foreach (QString tbl_s, tbls){
-            QTreeWidgetItem *tree = new QTreeWidgetItem(db);
+            QTreeWidgetItem *tree = new QTreeWidgetItem(tab);
             tree->setText(0,tbl_s);
         }
+        QStringList schs = p.getSchemas(db_s);
+        foreach (QString sch_s, schs){
+            QTreeWidgetItem *tree = new QTreeWidgetItem(sch);
+            tree->setText(0,sch_s);
+        }
     }
+    ui->tabs->setCurrentIndex(1);
+    ui->tree->setFocus();
 }
