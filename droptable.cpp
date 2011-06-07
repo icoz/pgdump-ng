@@ -6,28 +6,65 @@ DropTable::DropTable(QWidget *parent) :
 {
     this->setAcceptDrops(true);
     this->setDragDropMode(QAbstractItemView::DropOnly);
+    //this->setColumnCount(5);
+    //this->setHorizontalHeaderLabels();
+//this->setItemDelegateForColumn();
 }
 
 void DropTable::dropEvent(QDropEvent *event)
 {
-    qDebug("table - dropEvent");
     if (event->source() == this && event->possibleActions())
         return;
-    qDebug("table - dropEvent 1");
     if (event->proposedAction() == Qt::CopyAction){
         event->acceptProposedAction();
     }else return;
-    qDebug("table - dropEvent 2");
     if (event->mimeData()->hasText()){
+        if (this->columnCount() != 5) return;
         QString d = event->mimeData()->text();
-        qDebug(d.toAscii().data());
+        QStringList sl = d.split(":");
+        if (sl.at(0) == "1"){
+            //1:db_name:table:table_name
+            //1:db_name:schema:sch_name
+            QTableWidgetItem *it;
+            QString db   = sl.at(1),
+                    type = sl.at(2),
+                    name = sl.at(3);
+            int r = this->rowCount();
+            this->setRowCount(r+1);
+
+            it = new QTableWidgetItem(db);
+            it->setFlags(Qt::ItemIsEnabled);
+            this->setItem(r,0,it);
+
+            it = new QTableWidgetItem(type);
+            it->setFlags(Qt::ItemIsEnabled);
+            this->setItem(r,1,it);
+
+            it = new QTableWidgetItem(name);
+            it->setFlags(Qt::ItemIsEnabled);
+            this->setItem(r,2,it);
+
+            it = new QTableWidgetItem();
+            it->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
+            it->setCheckState(Qt::Checked);
+            this->setItem(r,3, it);
+
+            it = new QTableWidgetItem();
+            it->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
+            it->setCheckState(Qt::Checked);
+            this->setItem(r,4, it);
+        }else if (sl.at(0) == "2"){
+            //2:db_name:schema
+            //2:db_name:table
+
+        }
     }
     event->acceptProposedAction();
 }
 
 void DropTable::dragEnterEvent(QDragEnterEvent *event)
 {
-    qDebug("table - dragEnterEvent");
+    //qDebug("table - dragEnterEvent");
     if (event->mimeData()->hasText())
         event->acceptProposedAction();
 }
@@ -35,5 +72,6 @@ void DropTable::dragEnterEvent(QDragEnterEvent *event)
 void DropTable::dragMoveEvent(QDragMoveEvent *event)
 {
     //qDebug("table - dragMoveEvent");
-    //event->acceptProposedAction();
+    if (event->mimeData()->hasText())
+        event->acceptProposedAction();
 }

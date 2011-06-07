@@ -11,7 +11,6 @@ public:
     void dropEvent(QDropEvent *event);
     void dragEnterEvent(QDragEnterEvent *event);
     void dragMoveEvent(QDragMoveEvent *event);
-    //void dragLeaveEvent(
 signals:
 
 public slots:
