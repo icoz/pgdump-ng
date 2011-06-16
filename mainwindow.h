@@ -21,6 +21,10 @@ private slots:
 
     void on_btnNext_Table_clicked();
 
+    void on_cbxFormat_currentIndexChanged(int index);
+
+    void on_btnRunDump_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->cbxDataOnly->setVisible(false);
+    ui->cbxSchemaOnly->setVisible(false);
 }
 
 MainWindow::~MainWindow()
@@ -61,4 +63,67 @@ void MainWindow::on_btnNext_Table_clicked()
     }
     ui->tabs->setCurrentIndex(1);
     ui->tree->setFocus();
+}
+
+void MainWindow::on_cbxFormat_currentIndexChanged(int index)
+{
+    bool f = (index)? false:true;
+    ui->cbxDataOnly->setEnabled(f);
+    ui->cbxSchemaOnly->setEnabled(f);
+    ui->cbxNoOwner->setEnabled(f);
+    ui->cbxCreateDB->setEnabled(f);
+    ui->cbxDelDB->setEnabled(f);
+}
+
+void MainWindow::on_btnRunDump_clicked()
+{
+    QStringList args;
+    args << ((ui->cbxFormat->currentIndex())? ("-Ft") : ("-Fp"));
+    if (ui->cbxBLOBs->isChecked()) args << "-b";
+    if (ui->cbxColumnInserts->isChecked()) args << "--column-inserts";
+    args << QString("-E %1").arg(ui->cbxEnc->currentText());
+    args << QString("-f %1").arg(ui->edtFileName->text());
+    args << QString("-U %1").arg(ui->edtUser->text());
+    args << QString("-h %1").arg(ui->edtHost->text());
+    args << QString("-p %1").arg(ui->edtPort->text());
+    //args << QString("-t %1").arg(ui->edtFileName->text());
+    if (ui->cbxFormat->currentIndex() == 0){
+//        if (ui->cbxDataOnly->isChecked()) args << "-a";
+//        if (ui->cbxSchemaOnly->isChecked()) args << "-s";
+        if (ui->cbxNoOwner->isChecked()) args << "-O";
+        if (ui->cbxCreateDB->isChecked()) args << "-C";
+        if (ui->cbxDelDB->isChecked()) args << "-c";
+    }
+    QStringList args2;
+    for (int i = 0; i < ui->outTables->rowCount(); i++){
+        args2.clear();
+        QString dbname = ui->outTables->item(i,0)->data(0).toString();
+        QString type   = ui->outTables->item(i,1)->data(0).toString();
+        QString name   = ui->outTables->item(i,2)->data(0).toString();
+        bool    strct  = ui->outTables->item(i,3)->checkState() == Qt::Checked;
+        bool    data   = ui->outTables->item(i,4)->checkState() == Qt::Checked;
+        if (type == "table"){
+            args2 << "-t "+name;
+            if (strct & !data) args2 << "-s";
+            if (!strct & data) args2 << "-a";
+            if (!strct & !data) continue;
+        }else{
+            args2 << "-n "+name;
+            if (strct & !data) args2 << "-s";
+            if (!strct & data) args2 << "-a";
+            if (!strct & !data) continue;
+        }
+        QProcess::startDetached("pg_dump", QStringList() << args << args2 << dbname);
+
+    }
+}
+
+void MainWindow::on_tbtnBrowse_clicked()
+{
+    if (ui->cbxFormat->currentIndex() == 0)
+    {
+        ui->edtFileName->setText(QFileDialog::getSaveFileName(this, tr("Save File"),"", tr("Plain-dump (*.sql)")));
+    }else{
+        ui->edtFileName->setText(QFileDialog::getSaveFileName(this, tr("Save File"),"", tr("Tar-dump (*.tar)")));
+    }
 }
